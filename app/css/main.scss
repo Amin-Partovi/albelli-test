@@ -1,0 +1,105 @@
+body {
+  font-family: Helvetica, Verdana, sans-serif;
+  line-height: 1.5em;
+  height: 100%;
+}
+
+#imageContainer,
+#debugContainer {
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.column {
+  width: 48%;
+  margin: 0.5%;
+  border: 1px solid #000;
+  vertical-align: top;
+
+  &.left {
+    float: left;
+  }
+  &.right {
+    float: right;
+  }
+}
+
+#imageContainer {
+  img {
+    width: 100%;
+  }
+}
+
+#debugContainer {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+%button {
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgb(235, 235, 235);
+}
+
+#container {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 0;
+
+  #sideBar {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    gap: 1rem;
+    #submit {
+      @extend %button;
+      #downloadAnchorElem {
+        all: unset;
+      }
+    }
+  }
+
+  .zoom {
+    font-size: 2rem;
+    opacity: 80%;
+    background-color: rgb(235, 235, 235);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    margin: 1rem;
+    margin-left: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+  }
+
+  #canvasBox {
+    border: 2px dashed gray;
+    width: 15in;
+    height: 10in;
+    overflow: hidden;
+    position: relative;
+  }
+
+  canvas {
+    position: absolute;
+    z-index: 9;
+    cursor: move;
+  }
+
+  #jsonLabel {
+    @extend %button;
+    #jsonInput {
+      display: none;
+    }
+  }
+}
